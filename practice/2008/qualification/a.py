@@ -1,3 +1,8 @@
+"""
+run by 
+python3 a.py < test.in > test.out
+
+"""
 import sys
 sys.dont_write_bytecode = True
 
@@ -17,10 +22,6 @@ def main():
             queryList.append( engineDict[input().rstrip('\n')] )
         testCaseList.append( TestCase(i+1, nEngine, engineDict, nQuery, queryList) )
         testCaseList[-1].findMinimalSwitch()
-    # testCaseList[6].findMinimalSwitch()
-    # print(testCaseList[6])
-    # print([x.minSwitch for x in testCaseList])
-    # print([x for x in testCaseList])
 
 if __name__ == '__main__':
     main()

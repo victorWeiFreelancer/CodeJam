@@ -10,7 +10,6 @@ class TestCase(object):
         switchCount = 0
         prevEngine = -1
         vacancyList = [0]* (self.nEngines)
-        # print("Task %d engine vacant count %s" % (self.number, vacancyList))
         if self.nQueries:
             start = 0
             end = self.nQueries
@@ -18,7 +17,6 @@ class TestCase(object):
             while start<end:
                 vacancyList[self.queries[start]]+=1
                 if not any(v==0 for v in vacancyList) :
-                    # print("engine vacant count %s" % vacancyList)
                     prevEngine=start
                     switchCount+=1
                     vacancyList = [0]*self.nEngines
