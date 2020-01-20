@@ -3,6 +3,7 @@ run by
 python3 a.py < test.in > test.out
 
 """
+
 import sys
 sys.dont_write_bytecode = True
 
