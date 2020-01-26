@@ -1,5 +1,4 @@
 import sys
-# import numpy as np
 sys.dont_write_bytecode = True
 
 def timeStrConvertN(a):
@@ -25,19 +24,14 @@ def schedule(deltaT, a, b):
     while(len(a) and len(b)):
         if (a[0][0] < b[0][0]) or (a[0][0]==b[0][0] and a[0][1] <= b[0][1]):
             aCounter+=1
-            # print("a depart %s" % a[0] )
             depart(deltaT, [a, b])
         elif (a[0][0] > b[0][0]) or ( a[0][0]==b[0][0] and a[0][1] > b[0][1] ):
             bCounter+=1
-            # print("b depart %s" % b[0] )
             depart(deltaT, [b, a])
     if len(a):
-        # print("a remains")
         aCounter += len(a)
     elif len(b):
-        # print("b remains")
         bCounter += len(b)
-    # print([aCounter, bCounter])
     return [aCounter, bCounter]
 
 def main():
@@ -51,15 +45,10 @@ def main():
             startT, endT = input().split()
             aTrips.append([timeStrConvertN(startT), timeStrConvertN(endT)])
             aTrips = sorted(aTrips, key=lambda aTrips: aTrips[0])
-            
-            # aTrips.append([startT, endT])
         for _ in range(nb):
             startT, endT = input().split()
             bTrips.append([timeStrConvertN(startT), timeStrConvertN(endT)])
             bTrips = sorted(bTrips, key=lambda bTrips: bTrips[0])
-            # bTrips.append([startT, endT])
-        # print( aTrips )
-        # print( bTrips )
         aTrains, bTrains = schedule(turnAround, aTrips, bTrips)
         print( "Case #%d: %d %d" %(i+1, aTrains, bTrains))
 
